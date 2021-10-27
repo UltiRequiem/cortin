@@ -4,7 +4,12 @@ import express, { json, text } from 'express';
 import cors from 'cors';
 
 import {
-  PORT, USERNAME, PASSWORD, DB, CLUSTER_NAME, SUBDOMAIN,
+  CLUSTER_NAME,
+  DB,
+  PASSWORD,
+  PORT,
+  SUBDOMAIN,
+  USERNAME,
 } from './config.js';
 
 const URI = `mongodb+srv://${USERNAME}:${PASSWORD}@${CLUSTER_NAME}.${SUBDOMAIN}.mongodb.net/${DB}?retryWrites=true&w=majority`;

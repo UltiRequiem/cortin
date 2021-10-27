@@ -6,7 +6,10 @@
   "license": "MIT",
   "scripts": {
     "dev": "nodemon src/index.js",
-    "start": "node src/index.js"
+    "start": "node src/index.js",
+    "lint": "eslint src/",
+    "fix": "eslint --fix src/",
+    "format": "prettier --write ."
   },
   "dependencies": {
     "@hapi/boom": "^9.1.4",
