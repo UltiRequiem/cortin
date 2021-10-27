@@ -1,25 +1,11 @@
-import mongoose from 'mongoose';
 import express, { json, text } from 'express';
-
 import cors from 'cors';
 
-import {
-  CLUSTER_NAME,
-  DB,
-  PASSWORD,
-  PORT,
-  SUBDOMAIN,
-  USERNAME,
-} from './config.js';
+import { PORT } from './config.js';
+import { createLogger } from './utils.js';
+import { V1Router } from './routes/index.js';
 
-const URI = `mongodb+srv://${USERNAME}:${PASSWORD}@${CLUSTER_NAME}.${SUBDOMAIN}.mongodb.net/${DB}?retryWrites=true&w=majority`;
-
-mongoose.connect(URI, {}).then(() => {
-  console.log('MongoDB Connected');
-});
-
-const Link = mongoose.model('link', { url: String });
-
+const logger = createLogger();
 const app = express();
 
 app.use(cors());
@@ -28,16 +14,8 @@ app.use(json());
 
 app.use(text());
 
-app.post('/v1', async ({ body }, response) => {
-  console.log(body);
-  await new Link({ url: String(body) }).save();
-  response.send({ message: `Link ${String(body)} saved` });
-});
-
-app.use('/', async (request, response) => {
-  response.send(await Link.find());
-});
+app.use('/v1', V1Router);
 
 app.listen(PORT, () => {
-  console.log(`Server is running at http://localhost:${PORT}`);
+  logger.info(`Server is running at http://localhost:${PORT}`);
 });
