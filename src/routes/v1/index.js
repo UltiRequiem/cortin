@@ -4,9 +4,18 @@ import { DataBase } from '../../services/index.js';
 
 const V1Router = Router();
 
-V1Router.get('/', (request, response, next) => {
+V1Router.get('/', async (request, response, next) => {
   try {
-    response.status(200).json(DataBase.listAllLinks());
+    response.status(200).json(await DataBase.listAllLinks());
+  } catch (error) {
+    next(error);
+  }
+});
+
+V1Router.post('/', async ({ body }, response, next) => {
+  try {
+    await DataBase.newLink(body);
+    response.status(200).json({ message: `${body} posted successfully.` });
   } catch (error) {
     next(error);
   }

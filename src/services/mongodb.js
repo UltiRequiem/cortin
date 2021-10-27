@@ -8,17 +8,17 @@ const Link = mongoose.model('link', { url: String });
 class DataBase {
   constructor() {
     (async () => {
-      await this.connect();
+      await mongoose.connect(URI);
     })();
-  }
-
-  async connect() {
-    await mongoose.connect(URI);
   }
 
   async listAllLinks() {
     const links = await Link.find();
     return links;
+  }
+
+  async newLink(link) {
+    await new Link({ url: link }).save();
   }
 }
 
