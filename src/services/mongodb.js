@@ -3,10 +3,6 @@ import mongoose from 'mongoose';
 
 import { URI } from '../config.js';
 
-const {
-  mongo: { ObjectId },
-} = mongoose;
-
 const Link = mongoose.model('link', { url: String });
 
 class DataBase {
