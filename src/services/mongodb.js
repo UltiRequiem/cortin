@@ -3,6 +3,10 @@ import mongoose from 'mongoose';
 
 import { URI } from '../config.js';
 
+const {
+  mongo: { ObjectId },
+} = mongoose;
+
 const Link = mongoose.model('link', { url: String });
 
 class DataBase {
@@ -19,6 +23,15 @@ class DataBase {
 
   async newLink(link) {
     await new Link({ url: link }).save();
+  }
+
+  async findByID(id) {
+    const link = await Link.findById(id);
+    return link.url;
+  }
+
+  async deleteByID(id) {
+    await Link.findByIdAndRemove(id);
   }
 }
 
