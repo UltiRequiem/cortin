@@ -3,15 +3,14 @@ import cors from 'cors';
 import helmet from 'helmet';
 
 import { PORT } from './config.js';
-import { createLogger } from './utils.js';
+import { customLogger } from './utils.js';
 import { V1Router } from './routes/index.js';
 import {
-  boomErrorHandler,
-  errorHandler,
-  logErrors,
+  finalErrorHandler,
+  loggerHandler,
+  httpErrorsHandler,
 } from './middlewares/index.js';
 
-const logger = createLogger();
 const app = express();
 
 app.use(cors());
@@ -21,10 +20,10 @@ app.use(text());
 
 app.use('/v1', V1Router);
 
-app.use(boomErrorHandler);
-app.use(logErrors);
-app.use(errorHandler);
+app.use(loggerHandler);
+app.use(httpErrorsHandler);
+app.use(finalErrorHandler);
 
 app.listen(PORT, () => {
-  logger.info(`Server is running at http://localhost:${PORT}`);
+  customLogger.info(`Server is running at http://localhost:${PORT}`);
 });

@@ -1,7 +1,6 @@
 import log4js from 'log4js';
 
-// eslint-disable-next-line import/prefer-default-export
-export function createLogger() {
+function createLogger() {
   log4js.configure({
     appenders: {
       log: {
@@ -17,3 +16,6 @@ export function createLogger() {
 
   return log4js.getLogger('default');
 }
+
+// eslint-disable-next-line import/prefer-default-export
+export const customLogger = createLogger();
