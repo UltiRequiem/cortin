@@ -1,5 +1,6 @@
 import express, { json, text } from 'express';
 import cors from 'cors';
+import helmet from 'helmet';
 
 import { PORT } from './config.js';
 import { createLogger } from './utils.js';
@@ -14,6 +15,7 @@ const logger = createLogger();
 const app = express();
 
 app.use(cors());
+app.use(helmet());
 app.use(json());
 app.use(text());
 
