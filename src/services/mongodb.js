@@ -25,7 +25,9 @@ class DataBase {
   }
 
   async newLink(url, isPublic = false) {
-    await new Link({ url, isPublic }).save();
+    const link = await new Link({ url, isPublic }).save();
+    // eslint-disable-next-line no-underscore-dangle
+    return link._doc;
   }
 
   async findByID(id) {

@@ -1,8 +1,6 @@
 import { Router } from 'express';
 
 import { DataBase } from '../../services/index.js';
-import { validateSchemas } from '../../middlewares/index.js';
-import { url } from '../../schemas/index.js';
 
 const V1Router = Router();
 
@@ -30,18 +28,5 @@ V1Router.get('/', async (request, response, next) => {
     next(error);
   }
 });
-
-V1Router.post(
-  '/simple',
-  validateSchemas(url, 'body'),
-  async ({ body }, response, next) => {
-    try {
-      await DataBase.newLink(body);
-      response.status(200).json({ message: `${body} posted successfully.` });
-    } catch (error) {
-      next(error);
-    }
-  },
-);
 
 export default V1Router;

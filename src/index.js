@@ -4,7 +4,7 @@ import helmet from 'helmet';
 
 import { PORT } from './config.js';
 import { customLogger } from './utils.js';
-import { V1Router } from './routes/index.js';
+import { V1Router, SimpleRouter } from './routes/index.js';
 import {
   finalErrorHandler,
   loggerHandler,
@@ -19,6 +19,7 @@ app.use(json());
 app.use(text());
 
 app.use('/v1', V1Router);
+app.use('/simple', SimpleRouter);
 
 app.use(loggerHandler);
 app.use(httpErrorsHandler);

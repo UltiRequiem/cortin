@@ -11,7 +11,12 @@ function createLogger() {
       },
       console: { type: 'console', level: 'ALL' },
     },
-    categories: { default: { appenders: ['log', 'console'], level: 'ALL' } },
+    categories: {
+      default: {
+        appenders: ['log', 'console'],
+        level: 'ALL',
+      },
+    },
   });
 
   return log4js.getLogger('default');
