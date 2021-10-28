@@ -1,2 +1,2 @@
 export * from './errors.js';
-export * from './validator.js';
+export { default as validateSchemas } from './validator.js';

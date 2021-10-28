@@ -13,6 +13,8 @@ import {
 
 const app = express();
 
+app.set('json spaces', 2);
+
 app.use(cors());
 app.use(helmet());
 app.use(json());
