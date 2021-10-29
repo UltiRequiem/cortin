@@ -66,19 +66,11 @@ then rename it to `.env`.
 
 ### With Node.js and Yarn
 
-You can use `npm` instead of [`yarn`](https://github.com/yarnpkg/berry), but I
-encourage you to use [`yarn`](https://stackoverflow.com/questions/40027819).
-
-First build the frontend:
+You can use `npm` instead of [`yarn`](https://github.com/yarnpkg/berry), but [I
+encourage you to use yarn](https://stackoverflow.com/questions/40027819).
 
 ```sh
-yarn frontend
-```
-
-The start the server:
-
-```sh
-yarn start
+yarn && yarn start
 ```
 
 ### With Docker
@@ -89,7 +81,7 @@ Build the image:
 docker build . -t ultirequiem/cortito
 ```
 
-Run:
+Run the image:
 
 ```sh
 docker run -p 8080:8080 -d ultirequiem/cortito
