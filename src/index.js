@@ -25,8 +25,8 @@ if (FRONTEND === 'yes') {
   customLogger.info('Static files served');
 }
 
-app.use('/v1', V1Router);
 app.use('/', SimpleRouter);
+app.use('/v1', V1Router);
 app.use('/', RedirectRouter);
 
 app.use(loggerHandler);

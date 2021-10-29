@@ -25,8 +25,8 @@ class DataBase {
     return links;
   }
 
-  async newLink(url, isPublic = false) {
-    const link = await new Link({ url, isPublic }).save();
+  async newLink(url, isPrivate) {
+    const link = await new Link({ url, isPrivate }).save();
     // eslint-disable-next-line no-underscore-dangle
     return link._doc;
   }

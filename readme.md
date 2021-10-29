@@ -22,6 +22,11 @@ If all the process is successful, it will return a response like:
 }
 ```
 
+By default this link is public, that mens that it is listed when `GET /v1`,
+if you want make it private use `POST /v1`.
+
+### `POST /v1`
+
 ## Technologies Used
 
 - [React.js](https://reactjs.org): Frontend

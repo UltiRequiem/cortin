@@ -4,7 +4,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 export const PORT = process.env.PORT || 8080;
-export const FRONTEND = process.env.FRONTEND || true;
+export const FRONTEND = process.env.FRONTEND || 'yes';
 export const URL_DEPLOY = 'https://cortito.herokuapp.com';
 
 export const {

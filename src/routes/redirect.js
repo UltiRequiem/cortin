@@ -2,9 +2,9 @@ import { Router } from 'express';
 
 import { DataBase } from '../services/index.js';
 
-const redirecter = Router();
+const RedirectRouter = Router();
 
-redirecter.get('/:id', async ({ params: { id } }, response, next) => {
+RedirectRouter.get('/:id', async ({ params: { id } }, response, next) => {
   try {
     const urlToRedirect = await DataBase.findByID(id);
 
@@ -18,4 +18,4 @@ redirecter.get('/:id', async ({ params: { id } }, response, next) => {
   }
 });
 
-export default redirecter;
+export default RedirectRouter;
