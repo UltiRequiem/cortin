@@ -9,7 +9,7 @@ import {
   finalErrorHandler,
   loggerHandler,
   httpErrorsHandler,
-} from './middlewares/index.js';
+} from './middleware/index.js';
 
 const app = express();
 

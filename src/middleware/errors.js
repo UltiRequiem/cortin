@@ -1,6 +1,6 @@
 import { customLogger } from '../utils.js';
 
-export function loggerHandler(error, _requt, _response, next) {
+export function loggerHandler(error, _request, _response, next) {
   customLogger.error(error);
   next(error);
 }

@@ -1,7 +1,7 @@
 import boom from '@hapi/boom';
 import dotProp from 'dot-prop';
 
-export default function validateSchemas(schema, property) {
+export default function validateSchemasHandler(schema, property) {
   return (request, _response, next) => {
     const data = dotProp.get(request, property);
 

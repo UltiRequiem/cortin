@@ -1,6 +1,6 @@
 import { Router } from 'express';
 
-import { validateSchemas } from '../middlewares/index.js';
+import { validateSchemasHandler } from '../handlers/index.js';
 import { DataBase } from '../services/index.js';
 import { url } from '../schemas/index.js';
 
@@ -8,7 +8,7 @@ const SimpleRoute = Router();
 
 SimpleRoute.post(
   '/',
-  validateSchemas(url, 'body'),
+  validateSchemasHandler(url, 'body'),
   async ({ body }, response, next) => {
     try {
       const link = await DataBase.newLink(body);
