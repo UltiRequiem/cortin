@@ -2,7 +2,21 @@
 
 An URL Shorter
 
-## Docker
+## Deploy
+
+First build the frontend assets:
+
+```sh
+yarn frontend
+```
+
+The run:
+
+```sh
+yarn start
+```
+
+### With Docker
 
 Build:
 

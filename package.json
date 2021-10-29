@@ -5,7 +5,8 @@
   "type": "module",
   "license": "MIT",
   "scripts": {
-    "dev": "cd www && yarn && yarn build && cd .. && nodemon src/index.js",
+    "dev": "yarn frontend && nodemon src/index.js",
+    "frontend": "cd www && yarn && yarn build",
     "start": "node src/index.js",
     "lint": "eslint src/",
     "fix": "eslint --fix src/",
