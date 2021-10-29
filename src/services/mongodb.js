@@ -21,11 +21,15 @@ class DataBase {
   }
 
   async listAllLinks() {
-    const links = await Link.find();
+    const links = await Link.find({ isPrivate: undefined });
     return links;
   }
 
   async newLink(url, isPrivate) {
+    if (String(isPrivate) === 'false') {
+      // eslint-disable-next-line no-param-reassign
+      isPrivate = undefined;
+    }
     const link = await new Link({ url, isPrivate }).save();
     // eslint-disable-next-line no-underscore-dangle
     return link._doc;
