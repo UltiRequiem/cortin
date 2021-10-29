@@ -26,18 +26,29 @@ class DataBase {
   }
 
   async newLink(url, isPrivate) {
+    const alreadyExists = await Link.findOne({ url });
+
+    if (alreadyExists) {
+      // eslint-disable-next-line no-underscore-dangle
+      return alreadyExists._doc;
+    }
+
     if (String(isPrivate) === 'false') {
       // eslint-disable-next-line no-param-reassign
       isPrivate = undefined;
     }
-    const link = await new Link({ url, isPrivate }).save();
-    // eslint-disable-next-line no-underscore-dangle
-    return link._doc;
+    const { _doc: data } = await new Link({ url, isPrivate }).save();
+    return data;
   }
 
   async findByID(id) {
     const link = await Link.findById(id);
-    return link.url;
+    return link;
+  }
+
+  async getLink(id) {
+    const { url } = await this.findByID(id);
+    return url;
   }
 
   async deleteByID(id) {

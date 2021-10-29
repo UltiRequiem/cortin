@@ -15,6 +15,14 @@ V1Router.get('/', async (_request, response, next) => {
   }
 });
 
+V1Router.get('/:id', async ({ params }, response, next) => {
+  try {
+    response.status(200).json(await DataBase.findByID(params.id));
+  } catch (error) {
+    next(error);
+  }
+});
+
 V1Router.post(
   '/',
   validateSchemasHandler(urlWithOptions, 'body'),

@@ -1,5 +1,9 @@
+import { join, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
+
 import express, { json, text, static as staticMiddleware } from 'express';
 import cors from 'cors';
+import favicon from 'serve-favicon';
 import helmet from 'helmet';
 
 import { PORT, FRONTEND } from './config.js';
@@ -15,6 +19,17 @@ const app = express();
 
 app.set('json spaces', 2);
 
+app.use(
+  favicon(
+    join(
+      dirname(fileURLToPath(import.meta.url)),
+      '..',
+      'www',
+      'public',
+      'favicon.jpg',
+    ),
+  ),
+);
 app.use(cors());
 app.use(helmet());
 app.use(json());

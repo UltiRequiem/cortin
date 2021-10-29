@@ -6,13 +6,13 @@ const RedirectRouter = Router();
 
 RedirectRouter.get('/:id', async ({ params: { id } }, response, next) => {
   try {
-    const urlToRedirect = await DataBase.findByID(id);
+    const urlToRedirect = await DataBase.getLink(id);
 
     if (!urlToRedirect) {
       response.json({ message: `${id} does not exist.` });
     }
 
-    response.redirect(await DataBase.findByID(id));
+    response.redirect(urlToRedirect);
   } catch (error) {
     next(error);
   }
