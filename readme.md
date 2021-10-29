@@ -1,4 +1,4 @@
-# Cortito
+# cortin
 
 An open source URL Shortener.
 
@@ -9,7 +9,7 @@ An open source URL Shortener.
 Example using `curl`:
 
 ```sh
-curl -X POST -H "Content-Type: text/plain" --data "https://stackoverflow.com/questions/43054195" https://cortito.herokuapp.com
+curl -X POST -H "Content-Type: text/plain" --data "https://stackoverflow.com/questions/43054195" https://cortin.herokuapp.com
 ```
 
 If all the process is successful, it will return a response like:
@@ -18,7 +18,7 @@ If all the process is successful, it will return a response like:
 {
   "message": "Link \"https://stackoverflow.com/questions/43054195\" posted successfully.",
   "url": "https://stackoverflow.com/questions/43054195",
-  "shortLink": "https://cortito.herokuapp.com/617c2d647be17711a9ddfa57"
+  "shortLink": "https://cortin.herokuapp.com/617c2d647be17711a9ddfa57"
 }
 ```
 
@@ -101,13 +101,13 @@ yarn && yarn start
 Build the image:
 
 ```sh
-docker build . -t ultirequiem/cortito
+docker build . -t ultirequiem/cortin
 ```
 
 Run the image:
 
 ```sh
-docker run -p 8080:8080 -d ultirequiem/cortito
+docker run -p 8080:8080 -d ultirequiem/cortin
 ```
 
 > Independent of the method, now it should be running on http://localhost:8080

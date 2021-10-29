@@ -5,7 +5,7 @@ dotenv.config();
 
 export const PORT = process.env.PORT || 8080;
 export const FRONTEND = process.env.FRONTEND || 'yes';
-export const URL_DEPLOY = 'https://cortito.herokuapp.com';
+export const URL_DEPLOY = 'https://cortin.herokuapp.com';
 
 export const {
   PASSWORD, DB, CLUSTER_NAME, SUBDOMAIN, DB_USERNAME,
