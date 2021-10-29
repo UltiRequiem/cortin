@@ -4,12 +4,16 @@ An open source URL Shortener.
 
 ## API
 
+### `GET /`
+
+The website.
+
 ### `POST /`
 
 Example using `curl`:
 
 ```sh
-curl -X POST -H "Content-Type: text/plain" --data "https://stackoverflow.com/questions/43054195" https://cortin.herokuapp.com
+curl -X POST -H "Content-Type: text/plain" --data "https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch" https://cortin.herokuapp.com
 ```
 
 Example using the Javascript [`fetch`](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch) function:
@@ -24,25 +28,56 @@ const rawResponse = await fetch('https://cortin.herokuapp.com', {
   body: 'https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch',
 });
 
-const content = await rawResponse.json();
-
-console.log(content);
+console.log(await rawResponse.json());
 ```
 
-If all the process is successful, it will return a response like:
+If the process is successful, it will return:
 
 ```json
 {
-  "message": "Link \"https://stackoverflow.com/questions/43054195\" posted successfully.",
-  "url": "https://stackoverflow.com/questions/43054195",
-  "shortLink": "https://cortin.herokuapp.com/617c6719b46fab786e957273"
+  "message": "Link \"https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch\" posted successfully.",
+  "url": "https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch",
+  "shortLink": "https://cortin.herokuapp.com/617c7a3db46fab786e957283"
 }
 ```
 
-By default this link is public, that mens that it is listed when `GET /v1`,
-if you want make it private use `POST /v1`.
+By default this link is public, that means that it is listed when `GET /v1`,
+if you want make it private check `POST /v1`.
 
 ### `POST /v1`
+
+### `GET v1/`
+
+> https://cortin.herokuapp.com/v1
+
+Returns the list of all the public links.
+
+```sh
+curl https://cortin.herokuapp.com/v1
+```
+
+Example:
+
+```json
+[
+  {
+    "_id": "617c6dfcb46fab786e95727c",
+    "url": "https://github.com/UltiRequiem/cortin",
+    "__v": 0
+  },
+  {
+    "_id": "617c7a3db46fab786e957283",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch",
+    "__v": 0
+  }
+]
+```
+
+### `GET v1/:id`
+
+### `GET /:id`
+
+It will redirect you to the previously configured site.
 
 ## Technologies Used
 
