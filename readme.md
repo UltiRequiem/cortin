@@ -1,16 +1,26 @@
 # Cortito
 
-An URL Shorter
+An open source URL Shortener.
+
+## Project Layout
 
 ## Deploy
 
-First build the frontend assets:
+Check out [`.env-example`](./.env-example) and change it with your own data,
+then rename it to `.env`.
+
+### With Node.js and Yarn
+
+You can use `npm` instead of [`yarn`](https://github.com/yarnpkg/berry), but I
+encourage you to use `yarn`.
+
+First build the frontend:
 
 ```sh
 yarn frontend
 ```
 
-The run:
+The start the server:
 
 ```sh
 yarn start
@@ -18,7 +28,7 @@ yarn start
 
 ### With Docker
 
-Build:
+Build the image:
 
 ```sh
 docker build . -t ultirequiem/cortito
@@ -30,7 +40,7 @@ Run:
 docker run -p 8080:8080 -d ultirequiem/cortito
 ```
 
-Now it should be running on http://localhost:8080
+> Independent of the method, now it should be running on http://localhost:8080
 
 ## Licence
 

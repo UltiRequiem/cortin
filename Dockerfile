@@ -8,6 +8,8 @@ RUN yarn
 
 COPY . .
 
+RUN yarn frontend
+
 EXPOSE 8080
 
 CMD [ "yarn",  "start" ]
