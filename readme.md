@@ -2,9 +2,19 @@
 
 An open source URL Shortener.
 
-## API Endpoints
+## API
+
+## Technolies Used
+
+- [React.js](https://reactjs.org): Frontend
+- [Express.js](https://expressjs.com): Server
+- [MongoDB](https://www.mongodb.com): Persistent
+
+Technically is the [MERN Stack](https://www.mongodb.com/mern-stack).
 
 ## Project layout
+
+The structure of the project is quite simple:
 
 ```
 ├─ www/             The frontend
