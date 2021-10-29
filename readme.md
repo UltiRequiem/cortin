@@ -12,13 +12,30 @@ Example using `curl`:
 curl -X POST -H "Content-Type: text/plain" --data "https://stackoverflow.com/questions/43054195" https://cortin.herokuapp.com
 ```
 
+Example using the Javascript [`fetch`](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch) function:
+
+```javascript
+const rawResponse = await fetch('https://cortin.herokuapp.com', {
+  method: 'POST',
+  headers: {
+    Accept: 'application/json',
+    'Content-Type': 'text/plain',
+  },
+  body: 'https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch',
+});
+
+const content = await rawResponse.json();
+
+console.log(content);
+```
+
 If all the process is successful, it will return a response like:
 
 ```json
 {
   "message": "Link \"https://stackoverflow.com/questions/43054195\" posted successfully.",
   "url": "https://stackoverflow.com/questions/43054195",
-  "shortLink": "https://cortin.herokuapp.com/617c2d647be17711a9ddfa57"
+  "shortLink": "https://cortin.herokuapp.com/617c6719b46fab786e957273"
 }
 ```
 
