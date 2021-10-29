@@ -26,7 +26,7 @@ if (FRONTEND) {
 }
 
 app.use('/v1', V1Router);
-app.use('/simple', SimpleRouter);
+app.use('/', SimpleRouter);
 app.use('/', RedirectRouter);
 
 app.use(loggerHandler);

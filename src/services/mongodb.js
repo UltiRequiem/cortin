@@ -8,6 +8,7 @@ import {
   SUBDOMAIN,
   DB,
 } from '../config.js';
+
 import { Link } from '../models/index.js';
 
 class DataBase {
