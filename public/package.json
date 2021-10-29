@@ -4,8 +4,8 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "build": "webpack",
-    "start": "webpack serve"
+    "build": "npx webpack",
+    "start": "npx webpack serve"
   },
   "dependencies": {
     "prop-types": "^15.7.2",
