@@ -8,7 +8,7 @@
     "dev": "yarn frontend && nodemon src/index.js",
     "frontend": "cd www && yarn && yarn build",
     "start": "yarn frontend && node src/index.js",
-    "start:api": "FRONTEND=false node src/index.js",
+    "start:api": "FRONTEND=no node src/index.js",
     "lint": "eslint src/",
     "fix": "eslint --fix src/",
     "format": "prettier --write ."

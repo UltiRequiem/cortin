@@ -20,7 +20,7 @@ app.use(helmet());
 app.use(json());
 app.use(text());
 
-if (FRONTEND) {
+if (FRONTEND === 'yes') {
   app.use(staticMiddleware('www/dist'));
   customLogger.info('Static files served');
 }

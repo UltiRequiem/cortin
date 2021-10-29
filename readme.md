@@ -6,13 +6,7 @@ An open source URL Shortener.
 
 ### `POST /`
 
-> https://cortito.herokuapp.com
-
-It receives an URL in string format:
-
-Example URL: "https://stackoverflow.com/questions/43054195"
-
-Example of POST using `curl`:
+Example using `curl`:
 
 ```sh
 curl -X POST -H "Content-Type: text/plain" --data "https://stackoverflow.com/questions/43054195" https://cortito.herokuapp.com
