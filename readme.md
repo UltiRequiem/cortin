@@ -23,13 +23,40 @@ The structure of the project is quite simple:
 │   ├─ components/
 │   └─ index.js
 └─ src/             The server
-  ├─ middlewares/
+  ├─ middleware/
+  ├─ handlers/
   ├─ models/
   ├─ routes/
   ├─ schemas/
   ├─ config.js
   ├─ utils.js
   └─ index.js
+```
+
+## Development
+
+Start all the process:
+
+```sh
+yarn start
+```
+
+Start all the process but not the frontend:
+
+```sh
+yarn start:api
+```
+
+Live Reload API:
+
+```
+yarn dev
+```
+
+To work on the frontend, enter the [`www`](./www) directory and:
+
+```sh
+yarn dev
 ```
 
 ## Deploy
