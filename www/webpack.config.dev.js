@@ -2,13 +2,11 @@ const { join } = require('node:path')
 
 const HTMLWebpackPlugin = require('html-webpack-plugin')
 const MiniCSSExtractPlugin = require('mini-css-extract-plugin')
-const CSSMinimizerPlugin = require('css-minimizer-webpack-plugin')
-const TerserPlugin = require('terser-webpack-plugin')
 
 /** @type {import('webpack').Configuration} */
 module.exports = {
   entry: './src/index.js',
-  mode: 'production',
+  mode: 'development',
   output: {
     path: join(__dirname, 'dist'),
     filename: 'main.js',
@@ -34,7 +32,7 @@ module.exports = {
         test: /\.css$/,
         use: [
           {
-            loader: MiniCssExtractPlugin.loader
+            loader: MiniCSSExtractPlugin.loader
           },
           'css-loader'
         ]
@@ -46,10 +44,9 @@ module.exports = {
       template: './public/index.html',
       filename: './index.html'
     }),
-    new MiniCSSExtractPlugin({ filename: 'assets/[name].css' })
+    new MiniCSSExtractPlugin({ filename: 'assets/[name].css' }),
   ],
   optimization: {
-    minimize: true,
-    minimizer: [new CSSMinimizerPlugin(), new TerserPlugin()]
+    minimize: false
   }
 }

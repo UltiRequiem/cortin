@@ -40,7 +40,7 @@ then rename it to `.env`.
 ### With Node.js and Yarn
 
 You can use `npm` instead of [`yarn`](https://github.com/yarnpkg/berry), but I
-encourage you to use `yarn`.
+encourage you to use [`yarn`](https://stackoverflow.com/questions/40027819).
 
 First build the frontend:
 
