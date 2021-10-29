@@ -37,7 +37,7 @@ class DataBase {
       // eslint-disable-next-line no-param-reassign
       isPrivate = undefined;
     }
-    const { _doc: data } = await new Link({ url, isPrivate }).save();
+    const { _doc: data } = await new Link({ url, private: isPrivate }).save();
     return data;
   }
 

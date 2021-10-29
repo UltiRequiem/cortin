@@ -26,13 +26,14 @@ V1Router.get('/:id', async ({ params }, response, next) => {
 V1Router.post(
   '/',
   validateSchemasHandler(urlWithOptions, 'body'),
-  async ({ body: { url, isPrivate } }, response, next) => {
+  async ({ body: { url, private: isPrivate } }, response, next) => {
     try {
+      console.log(isPrivate);
       const link = await DataBase.newLink(url, isPrivate);
       response.status(200).json({
         message: `Link "${url}" posted successfully.`,
         url: link.url,
-        isPrivate: link.isPrivate || false,
+        private: link.private || false,
         // eslint-disable-next-line no-underscore-dangle
         shortLink: `${URL_DEPLOY}/${link._id}`,
       });

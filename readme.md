@@ -6,6 +6,8 @@ An open source URL Shortener.
 
 ### `GET /`
 
+> https://cortin.herokuapp.com
+
 The website.
 
 ### `POST /`
@@ -46,6 +48,35 @@ if you want make it private check `POST /v1`.
 
 ### `POST /v1`
 
+If you don't want your link to be listed in `GET /v1`, you can:
+
+```js
+const rawResponse = await fetch('https://cortin.herokuapp.com/v1', {
+  method: 'POST',
+  headers: {
+    Accept: 'application/json',
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify({
+    url: 'https://eslint.org/users',
+    private: true,
+  }),
+});
+
+console.log(await rawResponse.json());
+```
+
+This will return:
+
+```
+{
+    "message": "Link \"https://eslint.org/users\" posted successfully.",
+    "url": "https://eslint.org/users",
+    "private": true,
+    "shortLink": "https://cortin.herokuapp.com/617c7ef9d36584e5a265f7c7"
+}
+```
+
 ### `GET v1/`
 
 > https://cortin.herokuapp.com/v1
@@ -75,7 +106,27 @@ Example:
 
 ### `GET v1/:id`
 
+> https://cortin.herokuapp.com/v1/617c6dfcb46fab786e95727c
+
+This will show information about the link.
+
+```sh
+curl https://cortin.herokuapp.com/v1/617c6dfcb46fab786e95727c
+```
+
+Will return:
+
+```json
+{
+  "_id": "617c6dfcb46fab786e95727c",
+  "url": "https://github.com/UltiRequiem/cortin",
+  "__v": 0
+}
+```
+
 ### `GET /:id`
+
+> https://cortin.herokuapp.com/617c6dfcb46fab786e95727c
 
 It will redirect you to the previously configured site.
 
