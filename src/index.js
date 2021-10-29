@@ -19,7 +19,7 @@ app.use(cors());
 app.use(helmet());
 app.use(json());
 app.use(text());
-app.use(staticMiddleware('public/dist'));
+app.use(staticMiddleware('www/dist'));
 
 app.use('/v1', V1Router);
 app.use('/simple', SimpleRouter);

@@ -5,8 +5,8 @@
   "type": "module",
   "license": "MIT",
   "scripts": {
-    "dev": "cd public && yarn && yarn build && cd .. && nodemon src/index.js",
-    "start": "cd public && yarn && yarn build && cd .. && node src/index.js",
+    "dev": "cd www && yarn && yarn build && cd .. && nodemon src/index.js",
+    "start": "node src/index.js",
     "lint": "eslint src/",
     "fix": "eslint --fix src/",
     "format": "prettier --write ."
