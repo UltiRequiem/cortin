@@ -2,7 +2,7 @@
 
 An open source URL Shortener.
 
-## API
+## Endpoints
 
 ### `GET /`
 
@@ -43,8 +43,8 @@ If the process is successful, it will return:
 }
 ```
 
-By default this link is public, that means that it is listed when `GET /v1`,
-if you want make it private check `POST /v1`.
+By default this link is public, that means that it is listed in `GET /v1`,
+if you don't like this check `POST /v1`.
 
 ### `POST /v1`
 
