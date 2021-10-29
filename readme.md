@@ -4,11 +4,11 @@ An open source URL Shortener.
 
 ## API
 
-## Technolies Used
+## Technologies Used
 
 - [React.js](https://reactjs.org): Frontend
 - [Express.js](https://expressjs.com): Server
-- [MongoDB](https://www.mongodb.com): Persistent
+- [MongoDB](https://www.mongodb.com): Persistence
 
 Technically is the [MERN Stack](https://www.mongodb.com/mern-stack).
 
