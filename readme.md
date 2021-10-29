@@ -2,7 +2,25 @@
 
 An open source URL Shortener.
 
-## Project Layout
+## API Endpoints
+
+## Project layout
+
+```
+├─ www/             The frontend
+│ ├─ public/
+│ └─ src/
+│   ├─ components/
+│   └─ index.js
+└─ src/             The server
+  ├─ middlewares/
+  ├─ models/
+  ├─ routes/
+  ├─ schemas/
+  ├─ config.js
+  ├─ utils.js
+  └─ index.js
+```
 
 ## Deploy
 

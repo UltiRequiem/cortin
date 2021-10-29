@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import { Main } from './pages'
+const Main=()=><p>Hi</p>
 
 ReactDOM.render(<Main />, document.getElementById('app'))
