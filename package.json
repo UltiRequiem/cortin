@@ -8,6 +8,7 @@
     "dev": "yarn frontend && nodemon src/index.js",
     "dev:api": "FRONTEND=no nodemon src/index.js",
     "frontend": "cd www && yarn && yarn build",
+    "heroku": "node src/index.js",
     "start": "yarn frontend && node src/index.js",
     "start:api": "FRONTEND=no node src/index.js",
     "lint": "eslint src/",
