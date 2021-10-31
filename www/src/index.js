@@ -7,19 +7,47 @@ import { Container } from './containers'
 
 const Main = () => {
   const [input, setInput] = useState('')
+  const [data, setData] = useState({})
 
   return (
     <>
       <GlobalStyles />
       <Container>
         <h1>Cortin</h1>
-        <input
-          value={input}
-          onInput={(e) => setInput(e.target.value)}
-          type="text"
-        />
+        <form
+          onSubmit={(e) => {
+            fetch('https://cortin.herokuapp.com', {
+              method: 'POST',
+              headers: {
+                Accept: 'application/json',
+                'Content-Type': 'text/plain'
+              },
+              body: input
+            })
+              .then((va) => va.json())
+              .then((val) => setData(val))
 
-        <p>{input}</p>
+            e.preventDefault()
+          }}
+        >
+          <label>
+            Link:
+            <input
+              value={input}
+              onChange={(event) => setInput(event.target.value)}
+              type="text"
+            />
+          </label>
+          <input type="submit" value="Submit" />
+        </form>
+
+        {input !== '' ? (
+          data.shortLink ? (
+            <p>Response: {JSON.stringify(data)}</p>
+          ) : (
+            <p> Something gone wrong</p>
+          )
+        ) : null}
       </Container>
     </>
   )
