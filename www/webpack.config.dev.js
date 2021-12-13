@@ -44,7 +44,7 @@ module.exports = {
       template: './public/index.html',
       filename: './index.html'
     }),
-    new MiniCSSExtractPlugin({ filename: 'assets/[name].css' }),
+    new MiniCSSExtractPlugin({ filename: 'assets/[name].css' })
   ],
   optimization: {
     minimize: false

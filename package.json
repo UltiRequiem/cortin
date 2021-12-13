@@ -23,6 +23,7 @@
     "cors": "^2.8.5",
     "dot-prop": "^6.0.1",
     "dotenv": "^10.0.0",
+    "eslint": "^8.4.1",
     "express": "^4.17.1",
     "helmet": "^4.6.0",
     "joi": "^17.4.2",
@@ -31,7 +32,6 @@
     "serve-favicon": "^2.5.0"
   },
   "devDependencies": {
-    "eslint": "7.32.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "^2.25.2",
