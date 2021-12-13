@@ -28,7 +28,6 @@ V1Router.post(
   validateSchemasHandler(urlWithOptions, 'body'),
   async ({ body: { url, private: isPrivate } }, response, next) => {
     try {
-      console.log(isPrivate);
       const link = await DataBase.newLink(url, isPrivate);
       response.status(200).json({
         message: `Link "${url}" posted successfully.`,
