@@ -37,7 +37,7 @@ app.use(text());
 
 if (FRONTEND === 'yes') {
   app.use(staticMiddleware('www/dist'));
-  customLogger.info('Static files served');
+  customLogger.info('Static files served!');
 }
 
 app.use('/', SimpleRouter);

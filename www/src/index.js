@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { If } from 'react-extras'
 import ReactDOM from 'react-dom'
 
 import GlobalStyles from './globalStyles.js'
@@ -41,13 +42,10 @@ const Main = () => {
           <input type="submit" value="Submit" />
         </form>
 
-        {input !== '' ? (
-          data.shortLink ? (
-            <p>Response: {JSON.stringify(data)}</p>
-          ) : (
-            <p> Something gone wrong</p>
-          )
-        ) : null}
+        <If condition={input !== ''}>
+          <p> {data.shortLink ? `Response : ${JSON.stringify(data)}` : "Something gone wrong"}</p>
+        </If>
+
       </Container>
     </>
   )

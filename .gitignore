@@ -1,4 +1,6 @@
 node_modules/
 www/dist
+.vim/
+.vscode/
 logs/
 .env
