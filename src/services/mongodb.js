@@ -21,8 +21,7 @@ class DataBase {
   }
 
   async listAllLinks() {
-    const links = await Link.find({ isPrivate: undefined });
-    return links;
+    return Link.find({ isPrivate: undefined });
   }
 
   async newLink(url, isPrivate) {
@@ -33,7 +32,7 @@ class DataBase {
       return alreadyExists._doc;
     }
 
-    if (String(isPrivate) === 'false') {
+    if (!isPrivate) {
       // eslint-disable-next-line no-param-reassign
       isPrivate = undefined;
     }
@@ -42,17 +41,15 @@ class DataBase {
   }
 
   async findByID(id) {
-    const link = await Link.findById(id);
-    return link;
+    return Link.findById(id);
   }
 
   async getLink(id) {
-    const { url } = await this.findByID(id);
-    return url;
+    return this.findByID(id).url;
   }
 
   async deleteByID(id) {
-    await Link.findByIdAndRemove(id);
+    Link.findByIdAndRemove(id);
   }
 }
 

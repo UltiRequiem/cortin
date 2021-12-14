@@ -1,21 +1,18 @@
 import { Router } from 'express';
 
 import { DataBase } from '../services/index.js';
+import { tryNext } from '../utils.js';
 
 const RedirectRouter = Router();
 
 RedirectRouter.get('/:id', async ({ params: { id } }, response, next) => {
-  try {
+  tryNext(async () => {
     const urlToRedirect = await DataBase.getLink(id);
 
-    if (!urlToRedirect) {
-      response.json({ message: `${id} does not exist.` });
-    }
+    if (!urlToRedirect) response.json({ message: `${id} does not exist.` });
 
     response.redirect(urlToRedirect);
-  } catch (error) {
-    next(error);
-  }
+  }, next);
 });
 
 export default RedirectRouter;

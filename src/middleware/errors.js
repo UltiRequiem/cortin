@@ -6,10 +6,7 @@ export function loggerHandler(error, _request, _response, next) {
 }
 
 export function httpErrorsHandler(error, _request, response, next) {
-  if (error.isBoom) {
-    response.json(error.output.payload);
-  }
-
+  if (error.isBoom) response.json(error.output.payload);
   next(error);
 }
 
