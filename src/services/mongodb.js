@@ -14,9 +14,11 @@ import { Link } from '../models/index.js';
 class DataBase {
   constructor() {
     (async () => {
-      await mongoose.connect(
-        `mongodb+srv://${DB_USERNAME}:${PASSWORD}@${CLUSTER_NAME}.${SUBDOMAIN}.mongodb.net/${DB}?retryWrites=true&w=majority`,
-      );
+      // Support both MONGODB_URI (for Docker) and individual credentials (for Atlas)
+      const connectionString = process.env.MONGODB_URI
+        || `mongodb+srv://${DB_USERNAME}:${PASSWORD}@${CLUSTER_NAME}.${SUBDOMAIN}.mongodb.net/${DB}?retryWrites=true&w=majority`;
+
+      await mongoose.connect(connectionString);
     })();
   }
 

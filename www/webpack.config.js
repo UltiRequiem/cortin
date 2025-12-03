@@ -15,7 +15,10 @@ module.exports = {
     publicPath: '/'
   },
   resolve: {
-    extensions: ['.js']
+    extensions: ['.js'],
+    // Fix for ES module resolution issues when root package.json has "type": "module"
+    // This tells webpack to allow imports without file extensions
+    fullySpecified: false
   },
   module: {
     rules: [
@@ -24,6 +27,14 @@ module.exports = {
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader'
+        }
+      },
+      // Additional rule to handle node_modules with ES module issues
+      {
+        test: /\.js$/,
+        include: /node_modules/,
+        resolve: {
+          fullySpecified: false
         }
       },
       {

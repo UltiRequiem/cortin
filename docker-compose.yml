@@ -1,0 +1,59 @@
+services:
+  # MongoDB Database
+  mongodb:
+    image: mongo:6.0
+    container_name: cortin-mongodb
+    restart: unless-stopped
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: adminpassword
+      MONGO_INITDB_DATABASE: cortin
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+      - mongodb_config:/data/configdb
+    networks:
+      - cortin-network
+    healthcheck:
+      test: echo 'db.runCommand("ping").ok' | mongosh localhost:27017/test --quiet
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Cortin Application
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: cortin-app
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    environment:
+      # MongoDB connection - adjust these or use .env file
+      # For local MongoDB in docker-compose, keep these values
+      # For MongoDB Atlas, replace with your Atlas credentials
+      DB_USERNAME: ${DB_USERNAME:-admin}
+      PASSWORD: ${PASSWORD:-adminpassword}
+      DB: ${DB:-cortin}
+      CLUSTER_NAME: ${CLUSTER_NAME:-mongodb}
+      SUBDOMAIN: ${SUBDOMAIN:-localhost}
+      # Override MongoDB connection string for local setup
+      MONGODB_URI: mongodb://admin:adminpassword@mongodb:27017/cortin?authSource=admin
+      NODE_ENV: production
+    depends_on:
+      mongodb:
+        condition: service_healthy
+    networks:
+      - cortin-network
+
+networks:
+  cortin-network:
+    driver: bridge
+
+volumes:
+  mongodb_data:
+    driver: local
+  mongodb_config:
+    driver: local
