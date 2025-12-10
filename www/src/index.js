@@ -17,7 +17,8 @@ const Main = () => {
         <h1>Cortin</h1>
         <form
           onSubmit={(e) => {
-            fetch('https://cortin.herokuapp.com', {
+            // Use relative URL to work with both local development and production
+            fetch('/', {
               method: 'POST',
               headers: {
                 Accept: 'application/json',
