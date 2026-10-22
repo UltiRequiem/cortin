@@ -29,7 +29,7 @@
     "joi": "^17.13.8",
     "log4js": "^6.4.0",
     "mongoose": "^6.4.6",
-    "serve-favicon": "^2.5.0"
+    "serve-favicon": "^2.5.1"
   },
   "devDependencies": {
     "eslint-config-airbnb-base": "^14.2.1",
