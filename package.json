@@ -38,5 +38,6 @@
     "eslint-plugin-unicorn": "^37.0.1",
     "nodemon": "^2.0.14",
     "prettier": "^2.4.1"
-  }
+  },
+  "packageManager": "pnpm@12.6.0"
 }
