@@ -47,7 +47,7 @@ app.use(
         frameSrc: ["'none'"],
       },
     },
-  })
+  }),
 );
 app.use(json());
 app.use(text());
