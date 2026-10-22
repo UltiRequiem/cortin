@@ -37,7 +37,7 @@
     "eslint-plugin-import": "^2.25.2",
     "eslint-plugin-unicorn": "^37.0.1",
     "nodemon": "^2.0.14",
-    "prettier": "^2.4.1"
+    "prettier": "^3.9.10"
   },
   "packageManager": "pnpm@12.6.0"
 }

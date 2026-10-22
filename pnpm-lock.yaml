@@ -216,8 +216,8 @@ importers:
         specifier: ^2.0.14
         version: 2.0.15
       prettier:
-        specifier: ^2.4.1
-        version: 2.5.1
+        specifier: ^3.9.10
+        version: 3.9.10
 
 packages:
 
@@ -1449,9 +1449,9 @@ packages:
     resolution: {integrity: sha512-ravE6m9Atw9Z/jjttRUZ+clIXogdghyZAuWJ3qEzjT+jI/dL1ifAqhZeC5VHzQp1MSt1+jxKkFNemj/iO7tVUA==}
     engines: {node: '>=4'}
 
-  prettier@2.5.1:
-    resolution: {integrity: sha512-vBZcPRUR5MZJwoyi3ZoyQlc1rXeEck8KgeC9AwwOn+exuxLxq5toTRDTSaVrXHxelDMHy9zlicw8u66yxoSUFg==}
-    engines: {node: '>=10.13.0'}
+  prettier@3.9.10:
+    resolution: {integrity: sha512-skGHTH1Yb9QvaTC4hWnRTzEYtCpApF0UMBPz+t/0ZPzP8ihefo/btKd+QA7pUE0fEwA1SbS/NmhyEcstdXOIdA==}
+    engines: {node: '>=14'}
     hasBin: true
 
   progress@2.0.3:
@@ -3168,7 +3168,7 @@ snapshots:
 
   prepend-http@2.0.0: {}
 
-  prettier@2.5.1: {}
+  prettier@3.9.10: {}
 
   progress@2.0.3: {}
 
